@@ -110,7 +110,7 @@ namespace GenshinImpactMovementSystem
         protected virtual void AddInputActionsCallbacks()
         {
             stateMachine.Player.Input.PlayerActions.WalkToggle.started += OnWalkToggleStarted;
-
+            //stateMachine.ReusableData.ShouldWalk = true;
             stateMachine.Player.Input.PlayerActions.Look.started += OnMouseMovementStarted;
 
             stateMachine.Player.Input.PlayerActions.Movement.performed += OnMovementPerformed;

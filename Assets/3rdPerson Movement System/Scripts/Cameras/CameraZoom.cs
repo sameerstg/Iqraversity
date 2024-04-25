@@ -23,11 +23,12 @@ namespace GenshinImpactMovementSystem
             inputProvider = GetComponent<CinemachineInputProvider>();
 
             currentTargetDistance = defaultDistance;
+            framingTransposer.m_CameraDistance = defaultDistance;
         }
 
         private void Update()
         {
-            Zoom();
+            //Zoom();
         }
 
         private void Zoom()

@@ -99,18 +99,18 @@ namespace GenshinImpactMovementSystem
         {
             base.AddInputActionsCallbacks();
 
-            stateMachine.Player.Input.PlayerActions.Dash.started += OnDashStarted;
+            //stateMachine.Player.Input.PlayerActions.Dash.started += OnDashStarted;
 
-            stateMachine.Player.Input.PlayerActions.Jump.started += OnJumpStarted;
+            //stateMachine.Player.Input.PlayerActions.Jump.started += OnJumpStarted;
         }
 
         protected override void RemoveInputActionsCallbacks()
         {
             base.RemoveInputActionsCallbacks();
 
-            stateMachine.Player.Input.PlayerActions.Dash.started -= OnDashStarted;
+            //stateMachine.Player.Input.PlayerActions.Dash.started -= OnDashStarted;
 
-            stateMachine.Player.Input.PlayerActions.Jump.started -= OnJumpStarted;
+            //stateMachine.Player.Input.PlayerActions.Jump.started -= OnJumpStarted;
         }
 
         protected virtual void OnDashStarted(InputAction.CallbackContext context)
