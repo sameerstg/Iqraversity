@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Telling about the counseller
   m_EditorClassIdentifier: Assembly-CSharp::QuestionAnswer
-  question: We offer counselor for free of cosl who can help you in case of your
+  question: We offer counselor for free of cost who can help you in case of your
     career and education.
   answers:
   - answer: Yes, I am interested.
