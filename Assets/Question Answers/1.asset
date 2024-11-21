@@ -19,9 +19,11 @@ MonoBehaviour:
   - answer: I want to know what programs this university is offering.
     next: {fileID: 11400000, guid: f0cac99e9a830204d876675d05ee6c5d, type: 2}
   - answer: I want university tour.
-    next: {fileID: 11400000, guid: 4a163cc5b576aea44a98fb6003a3dded, type: 2}
+    next: {fileID: 11400000, guid: e5ed42dc27898a942af8c312d00a0160, type: 2}
   - answer: Nothing just hanging around.
     next: {fileID: 11400000, guid: 0b22d9b02f4965649b00bdf5b83428de, type: 2}
   inputFieldsForUser:
-  - title: Any other querry?
+  - isMandatory: 0
+    title: Any other querry?
     next: {fileID: 11400000, guid: 99a4be0aa4151f849a09471194d0dfcb, type: 2}
+  isProceedButton: 0
