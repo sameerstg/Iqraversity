@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,14 +19,14 @@ public class Bot : MonoBehaviour
     public List<Action> actions = new();
     [SerializeField]
     public List<QuestionAnswerNew> questionsAndAnswers;
+    public AllQuestionAnswer allQuestionAnswer;
+
     [ContextMenu("ASfasf")]
-    //public void VAl()
-    //{
-    //    foreach (var item in questionsAndAnswers1)
-    //    {
-    //        questionsAndAnswers.Add(new QuestionAnswerNew() { question = item.question, answers = item.answers, inputFieldsForUser = item.inputFieldsForUser, isProceedButton = item.isProceedButton });
-    //    }
-    //}
+    public void VAl()
+    {
+        allQuestionAnswer.questionsAndAnswers = questionsAndAnswers;
+        File.WriteAllText(Application.dataPath+ "\\_project\\Data.json",JsonUtility.ToJson(allQuestionAnswer));
+    }
     private void OnEnable()
     {
         CloseCanvas();
@@ -95,4 +96,5 @@ public class Bot : MonoBehaviour
     //{
     //}
 }
+
 

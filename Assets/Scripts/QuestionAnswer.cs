@@ -43,3 +43,8 @@ public class QuestionAnswerNew
     public bool isProceedButton;
 
 }
+[System.Serializable]
+public class AllQuestionAnswer
+{
+    public List<QuestionAnswerNew> questionsAndAnswers;
+}
