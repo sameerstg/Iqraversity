@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +12,30 @@ public class Bot : MonoBehaviour
     public TextMeshProUGUI question;
     public List<Slot> slots;
     public Button proceedButton;
-
-    public QuestionAnswer firstQuestionAnswer;
-    public QuestionAnswer currentQuestionAnswer;
+    //[SerializeField]
+    //public QuestionAnswer firstQuestionAnswer;
+    [SerializeField]
+    public QuestionAnswerNew currentQuestionAnswer;
     public List<Action> actions = new();
+    [SerializeField]
+    public List<QuestionAnswerNew> questionsAndAnswers;
+    public AllQuestionAnswer allQuestionAnswer;
 
+    [ContextMenu("ASfasf")]
+    public void VAl()
+    {
+        //allQuestionAnswer.questionsAndAnswers = questionsAndAnswers;
+        //File.WriteAllText(Application.dataPath+ "\\_project\\Data.json",JsonUtility.ToJson(allQuestionAnswer));
+        string data = File.ReadAllText(Application.dataPath + "\\_project\\Data.json");
+        //Debug.LogError(data);
+        allQuestionAnswer = JsonUtility.FromJson<AllQuestionAnswer>(data);
+        questionsAndAnswers = allQuestionAnswer.questionsAndAnswers;
+    }
     private void OnEnable()
+    {
+        CloseCanvas();
+    }
+    void CloseCanvas()
     {
         canvas.SetActive(false);
         proceedButton.gameObject.SetActive(false);
@@ -28,10 +47,10 @@ public class Bot : MonoBehaviour
     }
     public void OnClick()
     {
-        currentQuestionAnswer = firstQuestionAnswer;
+        currentQuestionAnswer = questionsAndAnswers[0];
         ShowQuestionAnswer(currentQuestionAnswer);
     }
-    public void ShowQuestionAnswer(QuestionAnswer newQA)
+    public void ShowQuestionAnswer(QuestionAnswerNew newQA)
     {
         canvas.SetActive(true);
         question.text = newQA.question;
@@ -49,54 +68,37 @@ public class Bot : MonoBehaviour
         }
         foreach (var item in newQA.answers)
         {
-            slots[curr++].ShowButton(item.answer, () => AnswerQuestion(item.next));
-            actions.Add(()=>AnswerQuestion(item.next));
+            int n = item.next;
+            slots[curr++].ShowButton(item.answer, () => AnswerQuestion(n));
+            actions.Add(() => AnswerQuestion(item.next));
         }
         foreach (var item in newQA.inputFieldsForUser)
         {
-            slots[curr++].ShowInputfield(item.title, () => AnswerQuestion(item.next));
-            actions.Add(()=>AnswerQuestion(item.next));
+            int n = item.next;
+            slots[curr++].ShowInputfield(item.title, () => AnswerQuestion(n));
+            actions.Add(() => AnswerQuestion(item.next));
         }
 
     }
-    public void AnswerQuestion(QuestionAnswer qa)
+    public void AnswerQuestion(int next)
     {
-        ShowQuestionAnswer(qa);
-        
+        if (next == -1)
+        {
+            CloseCanvas();
+
+            return;
+        }
+        ShowQuestionAnswer(questionsAndAnswers[next]);
+
     }
-    public void AnswerQuestion(int index)
+    public void AnswerQuestionMacro(int next)
     {
-        actions[index]?.Invoke();
+
+        actions[next]?.Invoke();
     }
-}
-[CreateAssetMenu(fileName = "NewQuestionAnswer", menuName = "Questions/QuestionAnswer")]
-public class QuestionAnswer : ScriptableObject
-{
-
-    [TextArea]
-    public string question;
-    public List<Answer> answers;
-    public List<InputFieldForUser> inputFieldsForUser;
-    public bool isProceedButton;
-
+    //public void AnswerQuestion(int index)
+    //{
+    //}
 }
 
-[System.Serializable]
-public class Answer
-{
-    [TextArea]
 
-    public string answer;
-    public QuestionAnswer next;
-
-}
-[System.Serializable]
-public class InputFieldForUser
-{
-    public bool isMandatory;
-    [TextArea]
-    public string title;
-
-    public QuestionAnswer next;
-
-}
