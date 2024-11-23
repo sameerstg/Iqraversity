@@ -18,18 +18,19 @@ public class Bot : MonoBehaviour
     public QuestionAnswerNew currentQuestionAnswer;
     public List<Action> actions = new();
     [SerializeField]
-    public List<QuestionAnswerNew> questionsAndAnswers;
     public AllQuestionAnswer allQuestionAnswer;
 
-    [ContextMenu("ASfasf")]
-    public void VAl()
+    [ContextMenu("SaveData")]
+    public void SaveData()
     {
-        //allQuestionAnswer.questionsAndAnswers = questionsAndAnswers;
-        //File.WriteAllText(Application.dataPath+ "\\_project\\Data.json",JsonUtility.ToJson(allQuestionAnswer));
+        string path = File.ReadAllText(Application.dataPath + "\\_project\\Data.json");
+        File.WriteAllText(JsonUtility.ToJson(allQuestionAnswer), path);
+    }
+    [ContextMenu("LoadData")]
+    public void LoadData()
+    {
         string data = File.ReadAllText(Application.dataPath + "\\_project\\Data.json");
-        //Debug.LogError(data);
         allQuestionAnswer = JsonUtility.FromJson<AllQuestionAnswer>(data);
-        questionsAndAnswers = allQuestionAnswer.questionsAndAnswers;
     }
     private void OnEnable()
     {
@@ -47,7 +48,7 @@ public class Bot : MonoBehaviour
     }
     public void OnClick()
     {
-        currentQuestionAnswer = questionsAndAnswers[0];
+        currentQuestionAnswer = allQuestionAnswer.questionsAndAnswers[0];
         ShowQuestionAnswer(currentQuestionAnswer);
     }
     public void ShowQuestionAnswer(QuestionAnswerNew newQA)
@@ -70,13 +71,11 @@ public class Bot : MonoBehaviour
         {
             int n = item.next;
             slots[curr++].ShowButton(item.answer, () => AnswerQuestion(n));
-            actions.Add(() => AnswerQuestion(item.next));
         }
         foreach (var item in newQA.inputFieldsForUser)
         {
             int n = item.next;
             slots[curr++].ShowInputfield(item.title, () => AnswerQuestion(n));
-            actions.Add(() => AnswerQuestion(item.next));
         }
 
     }
@@ -88,17 +87,9 @@ public class Bot : MonoBehaviour
 
             return;
         }
-        ShowQuestionAnswer(questionsAndAnswers[next]);
+        ShowQuestionAnswer(allQuestionAnswer.questionsAndAnswers[next]);
 
     }
-    public void AnswerQuestionMacro(int next)
-    {
-
-        actions[next]?.Invoke();
-    }
-    //public void AnswerQuestion(int index)
-    //{
-    //}
 }
 
 
