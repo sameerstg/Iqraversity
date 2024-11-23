@@ -19,6 +19,8 @@ public class Bot : MonoBehaviour
     public List<Action> actions = new();
     [SerializeField]
     public AllQuestionAnswer allQuestionAnswer;
+    [SerializeField]
+    GameObject clickMeCanvas;
 
     [ContextMenu("SaveData")]
     public void SaveData()
@@ -45,9 +47,11 @@ public class Bot : MonoBehaviour
         {
             slot.gameObject.SetActive(false);
         }
+        clickMeCanvas.SetActive(true); 
     }
     public void OnClick()
     {
+        clickMeCanvas.SetActive(false);
         currentQuestionAnswer = allQuestionAnswer.questionsAndAnswers[0];
         ShowQuestionAnswer(currentQuestionAnswer);
     }
