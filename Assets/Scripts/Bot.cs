@@ -17,7 +17,6 @@ public class Bot : MonoBehaviour
     [SerializeField]
     public QuestionAnswerNew currentQuestionAnswer;
     public List<Action> actions = new();
-    [SerializeField]
     public AllQuestionAnswer allQuestionAnswer;
     [SerializeField]
     GameObject clickMeCanvas;
@@ -25,8 +24,8 @@ public class Bot : MonoBehaviour
     [ContextMenu("SaveData")]
     public void SaveData()
     {
-        string path = File.ReadAllText(Application.dataPath + "\\_project\\Data.json");
-        File.WriteAllText(JsonUtility.ToJson(allQuestionAnswer), path);
+        string path = Application.dataPath + "\\_project\\Data.json";
+        File.WriteAllText(path, JsonUtility.ToJson(allQuestionAnswer));
     }
     [ContextMenu("LoadData")]
     public void LoadData()
@@ -47,7 +46,7 @@ public class Bot : MonoBehaviour
         {
             slot.gameObject.SetActive(false);
         }
-        clickMeCanvas.SetActive(true); 
+        clickMeCanvas.SetActive(true);
     }
     public void OnClick()
     {
