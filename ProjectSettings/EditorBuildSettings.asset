@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_project/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: "Assets/Samples/Meta XR Interaction \u200BSDK/69.0.2/Example Scenes/ComprehensiveRigExample.unity"
-    guid: 2efe93cb8972cae439bfba2dcd4165f0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8531c93b8c6529441bbc7b2a210a4ea3, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f0cf444cad3b66642b406ca90e0a8dd0, type: 2}
