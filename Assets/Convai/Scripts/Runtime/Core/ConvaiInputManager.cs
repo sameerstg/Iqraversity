@@ -23,7 +23,7 @@ namespace Convai.Scripts.Runtime.Core
         public Action toggleChat;
         public Action toggleSettings;
 
-        public bool IsTalkKeyHeld { get; private set; }
+        public bool IsTalkKeyHeld;
         public Action<bool> talkKeyInteract;
 
 #if ENABLE_INPUT_SYSTEM
@@ -145,8 +145,8 @@ namespace Convai.Scripts.Runtime.Core
         private void Update()
         {
 #if ENABLE_INPUT_SYSTEM
-            if (_controls.Player.MousePress.WasPressedThisFrame() && !EventSystem.current.IsPointerOverGameObject()) LockCursor(true);
-            if (_controls.Player.CursorUnlock.WasPressedThisFrame()) LockCursor(false);
+            //if (_controls.Player.MousePress.WasPressedThisFrame() && !EventSystem.current.IsPointerOverGameObject()) LockCursor(true);
+            //if (_controls.Player.CursorUnlock.WasPressedThisFrame()) LockCursor(false);
 #elif ENABLE_LEGACY_INPUT_MANAGER
             if (Input.GetButton("Jump"))
             {

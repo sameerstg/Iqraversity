@@ -593,3 +593,39 @@ Memory consumption went from 320.1 MB to 311.6 MB.
 Total: 20.430000 ms (FindLiveObjects: 1.497400 ms CreateObjectMapping: 0.645300 ms MarkObjects: 11.445000 ms  DeleteObjects: 6.840600 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 408.311988 seconds.
+  path: Assets/Convai/Resources/Controls.inputactions
+  artifactKey: Guid(2af4f2970466e34408dc852b6cc58653) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Convai/Resources/Controls.inputactions using Guid(2af4f2970466e34408dc852b6cc58653) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '99426369293b3a88f79503943c1490f8') in 0.0769825 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Convai/Prefabs/Transcript UI Canvases/Convai Transcript UI.prefab
+  artifactKey: Guid(d8fa7782ef3655b4b89ceecf9beef9d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Convai/Prefabs/Transcript UI Canvases/Convai Transcript UI.prefab using Guid(d8fa7782ef3655b4b89ceecf9beef9d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f1abc23c58d58f98da71b89029c83427') in 0.1130756 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 361
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Convai/Prefabs/Transcript UI Canvases/Default/Convai Transcript Canvas - Subtitle.prefab
+  artifactKey: Guid(6b74d4717ea3ad14f811147be80e97c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Convai/Prefabs/Transcript UI Canvases/Default/Convai Transcript Canvas - Subtitle.prefab using Guid(6b74d4717ea3ad14f811147be80e97c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '09789fb54b1615416a7315a358b2ff26') in 0.0358767 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 99
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Convai/Tutorials/Pages/Convai Welcome Page.asset
+  artifactKey: Guid(ee15530a0263f5f41a08d0090040e4bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Convai/Tutorials/Pages/Convai Welcome Page.asset using Guid(ee15530a0263f5f41a08d0090040e4bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dcd4e68237119bb073b505e04a8045b7') in 0.022749 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

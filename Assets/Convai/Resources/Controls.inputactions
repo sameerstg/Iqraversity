@@ -110,6 +110,17 @@
                 },
                 {
                     "name": "",
+                    "id": "00106c8d-b535-4309-bd4e-dcb1896cb52a",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse;Gamepad;Mobile",
+                    "action": "Talk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "eca909b4-db20-4f74-86ec-48d30a34f031",
                     "path": "<Keyboard>/space",
                     "interactions": "",

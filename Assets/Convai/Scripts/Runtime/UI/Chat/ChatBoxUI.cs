@@ -29,7 +29,7 @@ namespace Convai.Scripts.Runtime.UI
         /// <param name="uiPrefab">The UI prefab to instantiate.</param>
         public override void Initialize(GameObject uiPrefab)
         {
-            UIInstance = Instantiate(uiPrefab);
+            UIInstance = Instantiate(uiPrefab,Camera.main.transform);
             _chatPanel = UIInstance.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject;
             _chatScrollRect = UIInstance.transform.GetChild(0).GetChild(0).GetComponent<ScrollRect>();
             _isFirstMessage = true;
